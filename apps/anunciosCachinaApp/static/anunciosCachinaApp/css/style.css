@@ -1,0 +1,12 @@
+
+.bi-search{
+    color: orange;
+}
+
+.list-item-category{
+    display: none;
+}
+
+.list-item-category:hover{
+    display: block;
+}
