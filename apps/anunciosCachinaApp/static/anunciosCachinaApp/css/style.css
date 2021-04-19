@@ -1,12 +1,16 @@
 
-.bi-search{
-    color: orange;
+.nav-container{
+	width: 26rem;
+	min-height: 40rem;
 }
 
-.list-item-category{
-    display: none;
+.dropdown-content{
+	width: 26rem;
 }
 
-.list-item-category:hover{
-    display: block;
+.dropdown:hover .nav-container {
+	display: block;
+}
+.dropdown:hover .nav-container> .dropdown-content {
+	display: block;
 }

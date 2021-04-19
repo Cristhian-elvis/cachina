@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Kachina Anuncios</title>
+
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="{%static 'anunciosCachinaApp/css/style.css' %}"
+        />
+    </head>
+    <body style="background-color: #fff">
+        <!-- component -->
+        <section class="min-h-screen flex flex-col">
+            <nav>
+                <div class="flex px-4 pt-9 pb-2 justify-center">
+                    <a href="{%url 'Home'%}">
+                        <img
+                            src="{%static 'anunciosCachinaApp/img/Logo.svg' %}"
+                            alt=""
+                            width="110px"
+                        />
+                    </a>
+                </div>
+            </nav>
+            
+            {%block content_form%}
+            {%endblock%}
+
+        </section>
+
+        <!--SCROLL REVEALL-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <script src="{%static 'anunciosCachinaApp/js/login.js' %}"></script>
+    </body>
+</html>
