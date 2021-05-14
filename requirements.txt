@@ -20,3 +20,4 @@ six==1.15.0
 sqlparse==0.3.1
 tinytag==1.4.0
 whitenoise==5.2.0
+
