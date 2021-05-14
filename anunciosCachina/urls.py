@@ -17,9 +17,28 @@ from django.contrib import admin
 from django.urls import path, include
 
 from apps.anunciosCachinaApp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='Home'),
+
+    path('view/anounce/<int:anuncio_id>/', views.viewAnuncio, name='viewAnuncio'),
+
+    path('post', views.postStepOne, name='postStepOne'),
+    path('post/<str:id_category>/', views.postStepTwo, name='postStepTwo'),
+    path('post/<str:name_category>/<str:name_subcategory>/attributes', views.postCreate, name='postCreate'),
+
+    
+    path('misAnuncios', views.misAnuncios, name='misAnuncios'),
+    path('postDelete/<int:id_anounce>/', views.postDelete, name='postDelete'),
+    path('postUpdate/<int:id_anounce>/', views.postUpdate, name='postUpdate'),
+
+    #path('post/<str:name_category>/<str:name_subcategory>/', views.post, name='post'),
+    path('page-not-found/', views.pageNotFound, name='pageNotFound'),
+    
     path('join/', include('apps.userApp.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

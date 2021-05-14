@@ -1,0 +1,120 @@
+{% extends "userApp/baseLogin.html" %} {% load static %} 
+{%block description_page%}Inicia sesión en tu cuenta{%endblock%} 
+{%block content_form%}
+<div class="form_scroll">
+    <form method="post">
+        {% csrf_token %}
+        <div class="py-2 relative text-left">
+            <input
+                type="text"
+                class="label-issuing border outline-none w-full p-3.5 rounded-lg focus:border-blue-500"
+                name="username"
+                badinput="false"
+            />
+            <div
+                class="px-2 label-receiver absolute pointer-events-none text-gray-500 z-10"
+            >
+                Nombre de usuario o correo electrónico
+            </div>
+        </div>
+        <div class="py-2 relative text-left">
+            <input
+                type="password"
+                class="label-issuing border outline-none w-full p-3.5 rounded-lg focus:border-blue-500"
+                name="password1"
+                badinput="false"
+            />
+            <div
+                class="px-2 label-receiver absolute pointer-events-none text-gray-500 z-10"
+            >
+                Contraseña
+            </div>
+        </div>
+        <div class="py-2">
+            <button
+                type="submit"
+                class="bg-blue-500 w-full p-2 rounded-lg hover:bg-blue-600"
+            >
+                <span class="text-white font-bold tracking-wider"
+                    >INICIAR SESIÓN</span
+                >
+            </button>
+        </div>
+        <div class="py-2 text-center">
+            <a href="#" class="hover:underline">Olvidaste tu contraseña?</a>
+        </div>
+        <div class="flex items-center">
+            <hr class="flex-1" />
+            <span class="text-gray-600 mx-1">o</span>
+            <hr class="flex-1" />
+        </div>
+        <!--<div class="py-2 flex">
+            <button
+                type="submit"
+                class="relative mr-1 shadow-md border-2 border-gray-100 focus:outline-none bg-blue-600 text-white font-bold tracking-wider block w-full p-2 rounded-lg focus:border-gray-700 hover:bg-blue-700"
+            >
+                <span class="absolute left-4">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        style="fill: rgb(255, 255, 255)"
+                    >
+                        <path
+                            d="M13.397,20.997v-8.196h2.765l0.411-3.209h-3.176V7.548c0-0.926,0.258-1.56,1.587-1.56h1.684V3.127 C15.849,3.039,15.025,2.997,14.201,3c-2.444,0-4.122,1.492-4.122,4.231v2.355H7.332v3.209h2.753v8.202H13.397z"
+                        ></path>
+                    </svg>
+                </span>
+                Facebook
+            </button>
+            <button
+                type="submit"
+                class="relative ml-1 bg-white shadow-md border-2 border-gray-100 focus:outline-none text-gray-700 text-white font-bold tracking-wider block w-full p-2 rounded-lg focus:border-gray-700 hover:text-blue-600"
+            >
+                <span class="absolute left-4">
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 30 30"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                        <rect width="30" height="30" fill="url(#pattern0)" />
+                        <defs>
+                            <pattern
+                                id="pattern0"
+                                patternContentUnits="objectBoundingBox"
+                                width="1"
+                                height="1"
+                            >
+                                <use
+                                    xlink:href="#image0"
+                                    transform="scale(0.02)"
+                                />
+                            </pattern>
+                            <image
+                                id="image0"
+                                width="50"
+                                height="50"
+                                xlink:href="data:image/png;base64,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"
+                            />
+                        </defs>
+                    </svg>
+                </span>
+                Google
+            </button>
+        </div>-->
+    </form>
+
+    <div class="text-center mt-12">
+        <span> ¿No tienes una cuenta? </span>
+        <a
+            href="{%url 'signUp'%}"
+            class="font-light text-md text-indigo-600 font-semibold hover:text-indigo-800"
+            >Regístrate</a
+        >
+    </div>
+</div>
+{%endblock%}

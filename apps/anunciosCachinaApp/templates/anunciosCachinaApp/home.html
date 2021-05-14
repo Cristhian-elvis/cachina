@@ -1,37 +1,45 @@
-{% extends "anunciosCachinaApp/base.html" %}
+{% extends "anunciosCachinaApp/base.html" %} {%block container%}
 
-
-{%block container%}
-
-<div class="m-2 grid grid-cols-4  gap-4 relative">
-  {%for anuncio in anuncios%}
-  <div class="flex px-6 relative">
-    <div class="max-w-xs rounded overflow-hidden shadow-lg my-2">
-      <img class="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">
-          <span>S/ {{anuncio.precio}}</span>
+<div class="flex">
+    <div class="w-full px-4 sm:px-16 flex-1">
+        <div>
+            <div class="pt-4 pl-2 font-semibold">RECIENTES</div>
         </div>
-        <div class="font-bold text-xl mb-2">
-          <span>{{anuncio.nombre}}</span>
+        <div class="grid-anounce m-2 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {%for anuncio in anuncios%}
+            <div class="h-80 w-56 relative rounded shadow bg-white">
+                <a href="{%url 'viewAnuncio' anuncio.id%}">
+                    <div class="h-56 w-56">
+                        <img src="{{anuncio.imagen.url}}" alt="" class="h-56 w-56 w-full object-cover">
+                    </div>
+                    <div class="h-24 py-2 px-4 border border-l-0 border-r-0 border-b-0 border-gray-200">
+                        <div>
+                            <div class="font-normal">
+                                {%if anuncio.isFree%}
+                                <span class="font-medium text-2xl -mt-2 text-green-500">
+                                    Gratis
+                                </span>
+                                {%else%}
+                                <span class="font-semibold text-2xl -mt-2 text-gray-800">
+                                    S/ {{anuncio.getPrecio}}
+                                </span>
+                                {%endif%}
+                                
+                                <span class="block text-sm overflow-hidden text-gray-600">{{anuncio.nombre}}</span>
+                                <span
+                                    class="block text-sm text-gray-600"
+                                >
+                                    {{anuncio.fecha_creation}}
+                                </span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {%endfor%}
         </div>
-      </div>
-      <div class="px-6 py-4">
-        <span class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">
-          {{anuncio.ubicacion}}
-        </span>
-        <span
-          class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">
-          {{anuncio.fecha_creation}}
-        </span>
-        <span
-          class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">
-          {{anuncio.author.username}}
-        </span>
-      </div>
     </div>
-  </div>
-{%endfor%}
 </div>
 
 {%endblock%}
