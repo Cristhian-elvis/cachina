@@ -12,6 +12,16 @@
 	width: 550px;
 }
 
+/*view anuncios*/
+.ui-card-gallery{
+	width: 768px;
+	min-height: 568px;
+}
+.card-image{
+	width: 668px;
+	height: 468px;
+}
+
 .nav-container{
 	background-color: #fff;
 }
