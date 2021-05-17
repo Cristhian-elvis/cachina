@@ -171,7 +171,7 @@
                     <div class="flex items-center text-gray-700 px-2 py-2">
                         <a
                             href="{%url 'postStepOne' %}"
-                            class="flex hover:text-yellow-600"
+                            class="flex hover:text-blue-500"
                         >
                             <div class="mr-1">
                                 <svg
@@ -179,7 +179,6 @@
                                     width="16"
                                     height="16"
                                     fill="currentColor"
-                                    class="bi bi-plus-circle"
                                     viewBox="0 0 16 16"
                                 >
                                     <path
@@ -196,18 +195,17 @@
                     <div class="flex items-center text-gray-700 px-2 py-2">
                         <a
                             href="{%url 'misAnuncios' %}"
-                            class="hover:text-yellow-600"
+                            class="hover:text-blue-500"
                             >Mis anuncios</a
                         >
                     </div>
                     <div class="flex justify-center text-gray-100 px-2 py-2">
-                        <a href="#" class="self-center">
+                        <a href="{%url 'pageNotFound'%}" class="self-center text-gray-400 hover:text-blue-500">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"
                                 height="16"
                                 fill="currentColor"
-                                class="text-gray-600 hover:text-yellow-600"
                                 viewBox="0 0 16 16"
                             >
                                 <path
@@ -392,6 +390,19 @@
 
             <div class="flex-1 bg-gray-100">
                 {%block container%} {%endblock%}
+            </div>
+
+            <div class="py-4 bg-white flex text-sm text-gray-500">
+                <div class="mx-auto">
+                    <div class="text-center">
+                        <span>&copy;Cachina Anuncios TM - 2021</span>
+                    </div>
+                    <div class="mt-2 flex space-x-5">
+                        <a href="">Términis y condiciones de uso</a>
+                        <a href="">Políticas de seguridad</a>
+                        <a href="">Política de cookies</a>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

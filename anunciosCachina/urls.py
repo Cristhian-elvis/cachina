@@ -25,21 +25,17 @@ urlpatterns = [
     path('', views.home, name='Home'),
 
     path('view/anounce/<int:anuncio_id>/', views.viewAnuncio, name='viewAnuncio'),
+    path('misAnuncios', views.misAnuncios, name='misAnuncios'),
 
     path('post', views.postStepOne, name='postStepOne'),
     path('post/<str:id_category>/', views.postStepTwo, name='postStepTwo'),
     path('post/<str:name_category>/<str:name_subcategory>/attributes', views.postCreate, name='postCreate'),
-
-    
-    path('misAnuncios', views.misAnuncios, name='misAnuncios'),
     path('postDelete/<int:id_anounce>/', views.postDelete, name='postDelete'),
     path('postUpdate/<int:id_anounce>/', views.postUpdate, name='postUpdate'),
 
-    #path('post/<str:name_category>/<str:name_subcategory>/', views.post, name='post'),
     path('page-not-found/', views.pageNotFound, name='pageNotFound'),
     
     path('join/', include('apps.userApp.urls')),
 ]
 
-#urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

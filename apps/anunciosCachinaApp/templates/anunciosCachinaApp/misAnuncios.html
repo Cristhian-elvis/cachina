@@ -1,45 +1,48 @@
-{% extends "anunciosCachinaApp/base.html" %} 
-{%block container%}
+{% extends "anunciosCachinaApp/base.html" %} {%block container%}
 
-<div class="w-full px-4 sm:px-16">
-    <div class="grid-anounce m-2 grid grid-cols-2 sm:grid-cols-4 gap-4">
-        {%for anuncio in anuncios%}
-        <div class="flex relative">
-            <a href="{%url 'viewAnuncio' anuncio.id%}">
-                <div class="max-w-xs rounded overflow-hidden shadow-lg my-2">
-                    <img src="{{anuncio.imagen.url}}" alt="" class="w-full">
-                    <div class="px-6 py-1">
-                        <div class="font-bold text-base font-sans">
-                            <span>S/ {{anuncio.precio}}</span>
-                        </div>
-                        <div class="font-bold text-base font-sans">
-                            <span>{{anuncio.nombre}}</span>
-                        </div>
-                    </div>
-                    <div class="px-6 py-1 pb-2">
-                        <span
-                            class="inline-block bg-grey-lighter rounded-full text-sm font-semibold text-grey-darker mr-2"
-                        >
-                            {{anuncio.ubicacion}}
-                        </span>
-                        <span
-                            class="inline-block bg-grey-lighter rounded-full text-sm font-semibold text-grey-darker mr-2"
-                        >
-                            {{anuncio.fecha_creation}}
-                        </span>
-                        <span
-                            class="inline-block bg-grey-lighter rounded-full text-sm font-semibold text-grey-darker mr-2"
-                        >
-                            {{anuncio.author.username}}
-                        </span>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="{%url 'postDelete' anuncio.id%}" class="p-2 bg-red-300">Eliminar</a>
-            <a href="{%url 'postUpdate' anuncio.id%}" class="p-2 bg-green-300">Editar</a>
+<div class="flex">
+    <div class="w-full flex-1">
+        <div class="mx-7">
+            <div class="pt-4 pl-2 font-semibold">MIS ANUNCIOS</div>
         </div>
-        {%endfor%}
+        <div class="my-4 mx-8">
+            <ul>
+                <div class="flex flex-col space-y-5">
+                    {%for anuncio in anuncios%}
+                    <div class="h-40 w-full rounded shadow bg-white flex">
+                        <div class="flex flex-1">
+                            <div class="h-40 w-40 bg-gray-200 flex p-2">
+                                <span class="self-center">{{anuncio.fecha_creation}}</span>
+                            </div>
+                            <div class="h-40 w-40">
+                                <a href="{{anuncio.imagen.url}}" target="_blank">
+                                    <img
+                                        src="{{anuncio.imagen.url}}"
+                                        alt=""
+                                        class="h-40 w-40 object-cover"
+                                    />
+                                </a>
+                            </div>
+                            <div class="flex p-2"><span class="self-center">{{anuncio.nombre}}</span></div>
+                            <div class="flex"><span class="self-center">S/ {{anuncio.getPrecio}}</span></div>
+                        </div>
+                        <div class="flex flex-col text-center space-y-4 m-4 justify-center">
+                            <a
+                                href="{%url 'postUpdate' anuncio.id%}"
+                                class="p-2 bg-blue-600 rounded text-white"
+                                >Editar</a
+                            >
+                            <a
+                                href="{%url 'postDelete' anuncio.id%}"
+                                class="p-2 bg-red-500 rounded text-white"
+                                >Eliminar</a
+                            >
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </ul>
+        </div>
     </div>
 </div>
 
