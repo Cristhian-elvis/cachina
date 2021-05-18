@@ -14,7 +14,7 @@
                 {%for subcategoria in subcategorias%} 
                 {%if subcategoria.categoria.nombre == categoria.nombre %}
                 <a
-                    href="{%url 'postCreate' categoria.nombre subcategoria.nombre %}"
+                    href="{%url 'postCreate' subcategoria.nombre %}"
                     class="border border-gray-300 hover:bg-gray-200 flex hover:text-blue-500 p-4 text-gray-500"
                 >
                     <div class="flex">

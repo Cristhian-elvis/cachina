@@ -250,7 +250,7 @@
                             "
                         >
                             <div class="flex p-1 w-56 border border-gray-200 rounded">
-                                <ul class="dropdown-content text-gray-700 w-full px-4 pt-2">
+                                <ul class="dropdown-content text-gray-700 w-full px-3 pt-2">
                                     <a href="" class="flex">
                                         <div
                                             class="
@@ -261,18 +261,17 @@
                                                 bg-blue-500
                                                 w-10
                                                 h-10
-                                                px-2
-                                                py-2
                                                 text-xl
                                                 font-semibold
                                                 text-gray-50
+                                                overflow-ellipsis
                                             "
                                         >
                                             {{user.username | first | upper}}
                                         </div>
                                         <div class="ml-2">
                                             <div>{{user.username | upper}}</div>
-                                            <div>{{user.email}}</div>
+                                            <div class="text-xs">{{user.email}}</div>
                                         </div>
                                     </a>
                                     {%if user.is_staff%}
@@ -282,7 +281,7 @@
                                                 rounded-t
                                                 hover:text-blue-500
                                                 py-2
-                                                px-4
+                                                px-2
                                                 block
                                                 whitespace-no-wrap
                                             "
@@ -297,7 +296,7 @@
                                                 rounded-t
                                                 hover:text-blue-500
                                                 py-2
-                                                px-4
+                                                px-2
                                                 block
                                                 whitespace-no-wrap
                                             "
@@ -311,7 +310,7 @@
                                                 rounded-t
                                                 hover:text-blue-500
                                                 py-2
-                                                px-4
+                                                px-2
                                                 block
                                                 whitespace-no-wrap
                                             "
@@ -325,7 +324,7 @@
                                                 rounded-t
                                                 hover:text-blue-500
                                                 py-2
-                                                px-4
+                                                px-2
                                                 block
                                                 whitespace-no-wrap
                                             "
@@ -346,7 +345,7 @@
                             text-gray-700
                             border border-gray-500
                             px-2
-                            lg:px-4
+                            lg:px-2
                             py-2
                         "
                         href="{%url 'signUp'%}"
@@ -360,7 +359,7 @@
                             bg-blue-500
                             hover:bg-blue-600
                             px-2
-                            lg:px-4
+                            lg:px-2
                             py-2
                         "
                         href="{%url 'signIn'%}"

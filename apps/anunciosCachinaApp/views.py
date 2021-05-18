@@ -6,6 +6,7 @@ from .forms import formPost
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
+from django.contrib.auth.models import User
 
 def home(request):
     # return HttpResponse('Blog')
@@ -31,17 +32,15 @@ def viewAnuncio(request, anuncio_id):
 
 def misAnuncios(request):
 
-    """return render(
-        request,
-        'anunciosCachinaApp/misAnuncios.html',
-    )"""
     categorias = Categoria.objects.all()
     anuncios = Anuncio.objects.all()
+
+    user = User.objects.get(id=request.user.id)
 
     return render(
         request,
         'anunciosCachinaApp/misAnuncios.html',
-        {'anuncios': anuncios, 'categorias': categorias}
+        {'anuncios': anuncios, 'categorias': categorias,'user':user}
     )
 
 
@@ -65,7 +64,7 @@ def postStepTwo(request, id_category):
     )
 
 
-def postCreate(request, name_category, name_subcategory):
+def postCreate(request, name_subcategory):
     subcategoria = Subcategoria.objects.get(nombre=name_subcategory)
 
     if request.method == 'POST':

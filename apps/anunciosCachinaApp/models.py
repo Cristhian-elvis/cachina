@@ -11,7 +11,7 @@ class Categoria(models.Model):
         return self.nombre
 
 class Subcategoria(models.Model):
-    nombre = models.CharField(max_length=15)
+    nombre = models.CharField(max_length=30)
 
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 

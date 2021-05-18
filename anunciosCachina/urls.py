@@ -29,7 +29,7 @@ urlpatterns = [
 
     path('post', views.postStepOne, name='postStepOne'),
     path('post/<str:id_category>/', views.postStepTwo, name='postStepTwo'),
-    path('post/<str:name_category>/<str:name_subcategory>/attributes', views.postCreate, name='postCreate'),
+    path('post/<str:name_subcategory>/attributes', views.postCreate, name='postCreate'),
     path('postDelete/<int:id_anounce>/', views.postDelete, name='postDelete'),
     path('postUpdate/<int:id_anounce>/', views.postUpdate, name='postUpdate'),
 
